@@ -1,0 +1,31 @@
+{% extends 'travel/base.html' %}
+
+{% block content %}
+
+<h2 style="text-align:center;">Available Packages</h2>
+
+<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+
+    {% for package in packages %}
+    
+    <div style="border:1px solid #ccc; padding:15px; margin:10px; width:250px; border-radius:10px; background-color: azure;">
+        
+                <h3>{{ package.name }}</h3>
+        
+        <p>Location: {{ package.destination.name }}</p>
+        <p>Hotel: {{ package.hotel.name }}</p>
+        <p>Transport: {{ package.transport.transport_type }}</p>
+        <p>Price: {{ package.price_per_person }}</p>
+    
+
+        <a href="{% url 'book_package' package.id %}" class="btn btn-success">Book Now </a>
+        
+           
+        
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

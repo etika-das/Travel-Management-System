@@ -1,0 +1,29 @@
+{% extends 'travel/base.html' %}
+
+{% block content %}
+
+<div style="text-align:center; margin-top:100px;">
+
+    <h1>Welcome {{ request.user.username }}</h1>
+
+    <br><br>
+
+    <div class="options">
+
+        <!-- Package Booking -->
+        <a href="{% url 'package_list' %}" class="btn btn-success">
+            Book Your Package
+        </a>
+
+        <br><br>
+
+        <!-- Custom Trip -->
+        <a href="{% url 'custom_trip_step1' %}" class="btn btn-primary">
+            Book Your Own Trip
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

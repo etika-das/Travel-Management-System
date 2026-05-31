@@ -1,0 +1,113 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.hero {
+    height: 100vh;
+    background: url('/static/images/bg1.webp') no-repeat center center/cover;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar {
+    z-index: 2;
+}
+
+body {
+    background-image: url("/static/images/bg1.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.login-box {
+    width: 350px;
+    margin: auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    margin-top: 100px;
+}
+.booking-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background: #f5f7fb;
+}
+
+.booking-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+}
+
+.price {
+    background: #0d6efd;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.booking-body p {
+    margin: 6px 0;
+    color: #555;
+}
+
+.booking-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn.view {
+    background: #198754;
+    color: white;
+}
+
+.btn.cancel {
+    background: #dc3545;
+    color: white;
+}

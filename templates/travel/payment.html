@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .summary p {
+            margin: 10px 0;
+            color: #444;
+            font-size: 15px;
+        }
+
+        .total {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 20px;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .payment-options button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .bkash { background: #e91e63; color: white; }
+        .nagad { background: #ff9800; color: white; }
+        .cardpay { background: #3f51b5; color: white; }
+
+        .payment-options button:hover {
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Complete Your Payment</h2>
+
+<div class="container">
+
+    <!-- Booking Summary -->
+    <div class="card summary">
+        <h3>Booking Details</h3>
+
+        <p><b>People:</b> {{ booking.no_of_people }}</p>
+        <p><b>Start Date:</b> {{ booking.starting_date }}</p>
+        <p><b>End Date:</b> {{ booking.ending_date }}</p>
+
+        <div class="total">
+            Total Price: {{ total_price }} BDT
+        </div>
+    </div>
+
+    <!-- Payment Options -->
+    <div class="card payment-options">
+        <h3>Choose Payment Method</h3>
+
+        <button class="bkash">Pay with bKash</button>
+        <button class="nagad">Pay with Nagad</button>
+        <button class="cardpay">Pay with Card</button>
+    </div>
+
+</div>
+
+</body>
+</html>

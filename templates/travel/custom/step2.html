@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Hotel</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(to right, #eef2f7, #dfe9f3);
+            min-height:100vh;
+            padding:50px 20px;
+        }
+
+        .title{
+            text-align:center;
+            font-size:40px;
+            font-weight:bold;
+            color:#1e1e1e;
+            margin-bottom:50px;
+        }
+
+        .container{
+            max-width:1100px;
+            margin:auto;
+
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+            gap:30px;
+        }
+
+        .hotel-card{
+            background:white;
+            border-radius:20px;
+            padding:35px 30px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+            transition:0.4s;
+            text-align:center;
+        }
+
+        .hotel-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 16px 35px rgba(0,0,0,0.12);
+        }
+
+        .hotel-name{
+            font-size:28px;
+            font-weight:bold;
+            color:#111827;
+            margin-bottom:15px;
+        }
+
+        .price{
+            font-size:18px;
+            color:#4b5563;
+            margin-bottom:25px;
+        }
+
+        .select-btn{
+            display:inline-block;
+            padding:12px 24px;
+            background:#111827;
+            color:white;
+            text-decoration:none;
+            border-radius:10px;
+            transition:0.3s;
+            font-weight:bold;
+        }
+
+        .select-btn:hover{
+            background:#374151;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 class="title">Select Your Hotel</h1>
+
+    <div class="container">
+
+        {% for h in hotels %}
+
+        <div class="hotel-card">
+
+            <div class="hotel-name">
+                {{ h.name }}
+            </div>
+
+            <div class="price">
+                ৳ {{ h.price_per_night }} / night
+            </div>
+
+            <a href="{% url 'custom_trip_step3' h.id %}" class="select-btn">
+                Choose Hotel
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

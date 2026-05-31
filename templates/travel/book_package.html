@@ -1,0 +1,135 @@
+{% extends 'travel/base.html' %}
+
+{% block content %}
+
+<style>
+
+    body{
+        background: #f4f1ea;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .booking-container{
+        width: 450px;
+        margin: 60px auto;
+    }
+
+    .booking-card{
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .booking-title{
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: #1c1c1c;
+        margin-bottom: 10px;
+    }
+
+    .package-name{
+        text-align: center;
+        color: #b68d40;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .form-label{
+        font-weight: 600;
+        margin-top: 15px;
+        color: #333;
+    }
+
+    .form-control{
+        width: 100%;
+        padding: 14px;
+        margin-top: 8px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    .form-control:focus{
+        border-color: #b68d40;
+        outline: none;
+        box-shadow: 0 0 8px rgba(182,141,64,0.3);
+    }
+
+    .book-btn{
+        width: 100%;
+        padding: 14px;
+        margin-top: 30px;
+        background: #b68d40;
+        border: none;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        border-radius: 12px;
+        transition: 0.3s;
+    }
+
+    .book-btn:hover{
+        background: #96702c;
+        transform: scale(1.02);
+    }
+
+</style>
+
+<div class="booking-container">
+
+    <div class="booking-card">
+
+        <h1 class="booking-title">
+            Package Booking
+        </h1>
+
+        <p class="package-name">
+            {{ package.name }}
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label class="form-label">
+                Number of People
+            </label>
+
+            <input type="number"
+                   name="people"
+                   class="form-control"
+                   placeholder="Enter number of travelers"
+                   required>
+
+            <label class="form-label">
+                Start Date
+            </label>
+
+            <input type="date"
+                   name="start_date"
+                   class="form-control"
+                   required>
+
+            <label class="form-label">
+                End Date
+            </label>
+
+            <input type="date"
+                   name="end_date"
+                   class="form-control"
+                   required>
+
+            <button type="submit" class="book-btn">
+                Confirm Booking
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'travel/base.html' %}
+
+{% block content %}
+<section class="hero d-flex align-items-center justify-content-center text-center">
+    <div class="content text-white">
+        <h1 class="display-3 fw-bold">Let's Travel 🚗</h1>
+        <p class="lead">Let's explore the beauty of nature 🌿</p>
+
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">
+            Login to Book
+        </a>
+    </div>
+</section>
+{% endblock %}

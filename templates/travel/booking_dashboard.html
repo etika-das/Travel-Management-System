@@ -1,0 +1,29 @@
+<div class="booking-container">
+
+{% for b in bookings %}
+
+<div class="booking-card">
+
+    <div class="booking-header">
+        <h3 class="title">
+            🌍 {{ b.package.name|default:"Custom Trip" }}
+        </h3>
+        <span class="price">৳ {{ b.final_price }}</span>
+    </div>
+
+    <div class="booking-body">
+        <p>📍 <strong>Destination:</strong> {{ b.destination }}</p>
+        <p>🏨 <strong>Hotel:</strong> {{ b.hotel }}</p>
+        <p>🚗 <strong>Transport:</strong> {{ b.transport }}</p>
+    </div>
+
+    <div class="booking-footer">
+        <button class="btn view">View Details</button>
+        <button class="btn cancel">Cancel</button>
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>

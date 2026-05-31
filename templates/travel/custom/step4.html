@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Select Transport</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding:40px;
+}
+
+h2{
+    text-align:center;
+    color:white;
+    font-size:34px;
+    margin-bottom:40px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius:18px;
+    padding:25px;
+    color:white;
+}
+
+.title{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.price{
+    color:#cbd5e1;
+    margin-bottom:15px;
+}
+
+select, button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    font-size:14px;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Select Transport & Distance</h2>
+
+<div class="container">
+
+    <form method="POST" action="{% url 'custom_trip_confirm' %}">
+        {% csrf_token %}
+
+    
+        <div class="card">
+
+            <div class="title">Transport Type</div>
+
+            <select name="transport" required>
+                {% for t in transports %}
+                    <option value="{{ t.id }}">{{ t.transport_type }}</option>
+                {% endfor %}
+            </select>
+
+        </div>
+
+        <div class="card">
+
+            <div class="title">Distance Range</div>
+
+            <select name="distance" required>
+                {% for d in distances %}
+                    <option value="{{ d.id }}">
+                        {{ d.min_distance }} - {{ d.max_distance }} km
+                    </option>
+                {% endfor %}
+            </select>
+
+        </div>
+
+        <div class="card">
+
+            <button type="submit">
+                Confirm Booking
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
